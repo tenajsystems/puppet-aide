@@ -15,6 +15,7 @@ class aide (
   $nocheck              = $aide::params::nocheck,
   $mailto               = $aide::params::mailto,
   $mail_only_on_changes = $aide::params::mail_only_on_changes,
+  $init_timeout         = $aide::params::init_timeout,
 ) inherits aide::params {
 
   package { $package:
@@ -50,6 +51,7 @@ class aide (
       conf_path    => $conf_path,
       db_temp_path => $db_temp_path,
       db_path      => $db_path,
+      init_timeout => $init_timeout,
       require      => Package[$package],
     }
 
