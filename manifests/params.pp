@@ -14,6 +14,7 @@ class aide::params {
   $config_template      = 'aide/aide.conf.erb'
   $cron_template        = 'aide/cron.erb'
   $nocheck              = false
+  $init_timeout         = 300
 
   case $::osfamily {
     'Debian': {

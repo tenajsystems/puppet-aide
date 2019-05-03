@@ -4,11 +4,13 @@ class aide::firstrun (
   $conf_path,
   $db_temp_path,
   $db_path,
+  $init_timeout,
 ) {
 
   exec { 'aide init':
     command     => "${aide_path} --init --config ${conf_path}",
     user        => 'root',
+    timeout     => $init_timeout,
     refreshonly => true,
     subscribe   => Concat['aide.conf'],
   }
